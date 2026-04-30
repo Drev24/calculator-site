@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tip & Split Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google AdSense Placeholder -->
+  <!-- Replace with your AdSense code later -->
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+    .ad {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Tip & Split Calculator</h1>
+
+<div class="box">
+  <input type="number" id="bill" placeholder="Bill Amount ($)">
+  <input type="number" id="tip" placeholder="Tip % (e.g. 15)">
+  <input type="number" id="people" placeholder="Number of People">
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<!-- Ad Space -->
+<div class="ad">
+  <p>Ad Space</p>
+</div>
+
+<script>
+function calculate() {
+  let bill = parseFloat(document.getElementById("bill").value);
+  let tip = parseFloat(document.getElementById("tip").value);
+  let people = parseInt(document.getElementById("people").value);
+
+  if (!bill || !tip || !people) {
+    document.getElementById("result").innerHTML = "Please fill all fields.";
+    return;
+  }
+
+  let tipAmount = bill * (tip / 100);
+  let total = bill + tipAmount;
+  let perPerson = total / people;
+
+  document.getElementById("result").innerHTML =
+    "Total: $" + total.toFixed(2) + "<br>" +
+    "Per Person: $" + perPerson.toFixed(2);
+}
+</script>
+
+</body>
+</html>
